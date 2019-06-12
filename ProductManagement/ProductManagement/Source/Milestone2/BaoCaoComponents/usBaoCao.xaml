@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="Milestone2.BaoCaoComponents.usBaoCao"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Milestone2.BaoCaoComponents"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="680" d:DesignWidth="1000">
+    <Grid Background="#ECECEF">
+        <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.4}">
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:Card Cursor="Hand" Name="soLuongSanPhamDaBanPanel" MouseLeftButtonDown="SoLuongSanPhamDaBanPanel_MouseLeftButtonDown" materialDesign:ShadowAssist.ShadowDepth="Depth1" Background="#FFFDFDFD" Margin="90,15,20,0" Width="244" Height="122">
+                        <Grid>
+                            <Grid Width="25" Height="29" Background="#FFFFAF24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0">
+                                <Grid.Effect>
+                                    <DropShadowEffect BlurRadius="20" Color="#FFECECEC" RenderingBias="Quality" ShadowDepth="1"/>
+                                </Grid.Effect>
+                                <materialDesign:PackIcon RenderOptions.BitmapScalingMode="HighQuality" Kind="ChartBar" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Foreground="White" Width="15" Height="20"/>
+                            </Grid>
+                            <TextBlock Text="Số lượng sản phẩm đã bán" FontFamily="/Milestone2;component/assets/#SVN-Poppins" 
+                                       Margin="48,7,27,98"
+                                       Foreground="#666CA6"
+                                       FontSize="12"
+                                       
+                                       />
+                            <Image   Source="/img/cot.png" Margin="36,40,48,5"/>
+                        </Grid>
+                    </materialDesign:Card>
+                    <materialDesign:Card Cursor="Hand" Name="doanhThuPanel" MouseLeftButtonDown="DoanhThuPanel_MouseLeftButtonDown" materialDesign:ShadowAssist.ShadowDepth="Depth1" Background="#FFFDFDFD" Margin="30,15,20,0" Width="244" Height="122">
+                        <Grid>
+                            <Grid Width="25" Height="29" Background="#F21692" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0">
+                                <Grid.Effect>
+                                    <DropShadowEffect BlurRadius="20" Color="#FFECECEC" RenderingBias="Quality" ShadowDepth="1"/>
+                                </Grid.Effect>
+
+                                <materialDesign:PackIcon RenderOptions.BitmapScalingMode="HighQuality" Kind="ChartAreaspline" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Foreground="White" Width="15" Height="20"/>
+                            </Grid>
+                            <TextBlock Text="Doanh thu " FontFamily="/Milestone2;component/assets/#SVN-Poppins" 
+                                       Margin="48,7,27,98"
+                                       Foreground="#666CA6"
+                                       FontSize="12"
+                                       
+                                       />
+                            <Image   Source="/img/lineC.png" Margin="28,39,27,5"/>
+                        </Grid>
+                    </materialDesign:Card>
+                    <materialDesign:Card Cursor="Hand" Name="tileDongGopPanel" MouseLeftButtonDown="TileDongGopPanel_MouseLeftButtonDown" materialDesign:ShadowAssist.ShadowDepth="Depth1" Background="#FFFDFDFD" Margin="30,15,20,0" Width="244" Height="122">
+                        <Grid>
+                            <Grid Width="25" Height="29" Background="#0CBED3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0">
+                                <Grid.Effect>
+                                    <DropShadowEffect BlurRadius="20" Color="#FFECECEC" RenderingBias="Quality" ShadowDepth="1"/>
+                                </Grid.Effect>
+                                <Image Width="16" Height="16" Source="/img/pie.png"/>
+                            </Grid>
+                            <TextBlock Text="Tỉ lệ đóng góp doanh thu" FontFamily="/Milestone2;component/assets/#SVN-Poppins" 
+                                       Margin="48,7,27,98"
+                                       Foreground="#666CA6"
+                                       FontSize="12"
+                                       
+                                       />
+                            <Image Source="/img/pieChart.png" Margin="10,35,109,10"/>
+                            <Image Source="/img/lineRound.png" RenderOptions.BitmapScalingMode="HighQuality" Margin="135,44,99,27"/>
+                            <TextBlock Text="Tháng 1" 
+                                       FontSize="8"
+                                       Foreground="#666CA6" 
+                                       FontFamily="/Milestone2;component/assets/#SVN-Poppins" 
+                                       Margin="150,43,60,66"
+                                       
+                                       />
+                            <TextBlock Text="Tháng 4" 
+                                       FontSize="8"
+                                       Foreground="#666CA6" 
+                                       FontFamily="/Milestone2;component/assets/#SVN-Poppins" 
+                                       Margin="150,86,60,23"
+                                       
+                                       />
+                            <TextBlock Text="Tháng 3" 
+                                       FontSize="8"
+                                       Foreground="#666CA6" 
+                                       FontFamily="/Milestone2;component/assets/#SVN-Poppins" 
+                                       Margin="150,73,60,36"
+                                       
+                                       />
+                            <TextBlock Text="Tháng 2" 
+                                       FontSize="8"
+                                       Foreground="#666CA6" 
+                                       FontFamily="/Milestone2;component/assets/#SVN-Poppins" 
+                                       Margin="150,58,60,54"
+                                       
+                                       />
+                        </Grid>
+                    </materialDesign:Card>
+                </StackPanel>
+                <Grid Margin="0,144,0,0" >
+                    <materialDesign:Card Padding="2"  Background="#FFFDFDFD" Margin="20,10,20,0" Height="516" >
+                        <Grid Name="gridChart" Margin="0,0,-4,-4">
+
+                        </Grid>
+                    </materialDesign:Card>
+                </Grid>
+            </Grid>
+        </materialDesign:TransitioningContent>
+    </Grid>
+</UserControl>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="365da4af3f3f42458fd7e21197c749b3" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="SanPhamDatabaseModel.Category" Width="1.5" PointX="4.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SanPhamDatabaseModel.Customer" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SanPhamDatabaseModel.OrderDetail" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SanPhamDatabaseModel.OrderState" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SanPhamDatabaseModel.Product" Width="1.5" PointX="8.125" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SanPhamDatabaseModel.Purchase" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="SanPhamDatabaseModel.FK_Product_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="SanPhamDatabaseModel.FK_Purchase_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="SanPhamDatabaseModel.FK_OrderDetail_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="SanPhamDatabaseModel.FK_OrderDetail_Purchase" ManuallyRouted="false" />
+        <AssociationConnector Association="SanPhamDatabaseModel.FK_Purchase_OrderState" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3CC1C2D9-574A-4B5E-B036-EBC2DAB8BB8F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Milestone2</RootNamespace>
+    <AssemblyName>Milestone2</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells">
+      <HintPath>D:\_Nam3--2\Lap_Trinh_UD_Quan_Li\Thuc_Hanh\Tuan3\Thu_Vien_inport_Excel\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Words">
+      <HintPath>D:\_Nam3--2\Lap_Trinh_UD_Quan_Li\Thuc_Hanh\Tuan3\Thu_Vien_inport_Excel\Aspose.Words.dll</HintPath>
+    </Reference>
+    <Reference Include="BespokeFusion, Version=1.0.1.10, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialMessageBox.1.0.0.11\lib\BespokeFusion.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.2.4.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.1.1345, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.5.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Data.WPF, Version=17.1460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Data.WPF.17.1.0.48\lib\net46\Syncfusion.Data.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.WPF, Version=17.1460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Grid.WPF.17.1.0.48\lib\net46\Syncfusion.Grid.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.GridCommon.WPF, Version=17.1460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.GridCommon.Wpf.17.1.0.48\lib\net46\Syncfusion.GridCommon.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=17.1460.0.50, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.17.1.0.50\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Linq.Base, Version=17.1460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Linq.Base.17.1.0.48\lib\net46\Syncfusion.Linq.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfChart.WPF, Version=17.1460.0.50, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfChart.WPF.17.1.0.50\lib\net46\Syncfusion.SfChart.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfGauge.WPF, Version=17.1460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfGauge.WPF.17.1.0.48\lib\net46\Syncfusion.SfGauge.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfGrid.WPF, Version=17.1460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfGrid.WPF.17.1.0.48\lib\net46\Syncfusion.SfGrid.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfInput.WPF, Version=17.1460.0.50, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfInput.WPF.17.1.0.50\lib\net46\Syncfusion.SfInput.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfShared.WPF, Version=17.1460.0.50, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfShared.WPF.17.1.0.50\lib\net46\Syncfusion.SfShared.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.WPF, Version=17.1460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.WPF.17.1.0.48\lib\net46\Syncfusion.Shared.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="BaoCaoComponents\BieuDoBanh\ColorConverter.cs" />
+    <Compile Include="BaoCaoComponents\BieuDoBanh\Labelconvertor.cs" />
+    <Compile Include="BaoCaoComponents\BieuDoBanh\Model.cs" />
+    <Compile Include="BaoCaoComponents\BieuDoCot\Model.cs" />
+    <Compile Include="BaoCaoComponents\BieuDoDuong\Data.cs" />
+    <Compile Include="BaoCaoComponents\usBaoCao.xaml.cs">
+      <DependentUpon>usBaoCao.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCaoComponents\BieuDoDuong\usDoanhThu.xaml.cs">
+      <DependentUpon>usDoanhThu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCaoComponents\BieuDoBanh\usTiLeDongGop.xaml.cs">
+      <DependentUpon>usTiLeDongGop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCaoComponents\BieuDoCot\usTKSoLuongSP.xaml.cs">
+      <DependentUpon>usTKSoLuongSP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Category.cs">
+      <DependentUpon>SanPhamDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>SanPhamDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ImageConverter.cs" />
+    <Compile Include="OrderDetail.cs">
+      <DependentUpon>SanPhamDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderState.cs">
+      <DependentUpon>SanPhamDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>SanPhamDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Purchase.cs">
+      <DependentUpon>SanPhamDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLiComponents\OrderStateToStringConverter.cs" />
+    <Compile Include="QuanLiComponents\SuaHoaDon.xaml.cs">
+      <DependentUpon>SuaHoaDon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLiComponents\usDetailCategory.xaml.cs">
+      <DependentUpon>usDetailCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLiComponents\usHienThiTheoLoai.xaml.cs">
+      <DependentUpon>usHienThiTheoLoai.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLiComponents\usHoaDon.xaml.cs">
+      <DependentUpon>usHoaDon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLiComponents\usLoaiSanPham.xaml.cs">
+      <DependentUpon>usLoaiSanPham.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLiComponents\usSanPham.xaml.cs">
+      <DependentUpon>usSanPham.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegexValidation.cs" />
+    <Compile Include="SanPhamDatabaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanPhamDatabaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SanPhamDatabaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanPhamDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SanPhamDatabaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanPhamDatabaseModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="usBanHang.xaml.cs">
+      <DependentUpon>usBanHang.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLiComponents\usHienThiToanBoSanPham.xaml.cs">
+      <DependentUpon>usHienThiToanBoSanPham.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="usQuanLi.xaml.cs">
+      <DependentUpon>usQuanLi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="usThongtin.xaml.cs">
+      <DependentUpon>usThongtin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="usTrangChu.xaml.cs">
+      <DependentUpon>usTrangChu.xaml</DependentUpon>
+    </Compile>
+    <Page Include="BaoCaoComponents\usBaoCao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BaoCaoComponents\BieuDoDuong\usDoanhThu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BaoCaoComponents\BieuDoBanh\usTiLeDongGop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BaoCaoComponents\BieuDoCot\usTKSoLuongSP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="QuanLiComponents\SuaHoaDon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuanLiComponents\usDetailCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuanLiComponents\usHienThiTheoLoai.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuanLiComponents\usHoaDon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuanLiComponents\usLoaiSanPham.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuanLiComponents\usSanPham.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usBanHang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuanLiComponents\usHienThiToanBoSanPham.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usQuanLi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usThongtin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="usTrangChu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="SanPhamDatabaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SanPhamDatabaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Resource Include="img\Poppins-BoldItalic.ttf" />
+    <None Include="SanPhamDatabaseModel.edmx.diagram">
+      <DependentUpon>SanPhamDatabaseModel.edmx</DependentUpon>
+    </None>
+    <Resource Include="assets\SVN-Poppins Regular.ttf" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\themBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons8_Double_Right_50px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_Open_Box_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons8_Open_Box_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons8_Pie_Chart_25px.png" />
+    <Resource Include="img\icons8_Purchase_Order_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons8_Plus_Math_20px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons8_Sorting_20px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons8_Add_File_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\icons8_Add_File_52px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\3dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Asset 1-8.png" />
+    <Resource Include="img\beautiful.gif" />
+    <Resource Include="img\icons8_Edit_48px_1.png" />
+    <Resource Include="img\icons8_Remove_Data_48px.png" />
+    <Resource Include="img\back.png" />
+    <Resource Include="img\foward.png" />
+    <Resource Include="img\arrowRight.png" />
+    <Resource Include="img\icons8_Search_50px.png" />
+    <Resource Include="img\thongbao.png" />
+    <Resource Include="img\basket.png" />
+    <Resource Include="img\filter1.png" />
+    <Resource Include="img\backgroundTC.jpg" />
+    <Resource Include="img\pieChart.png" />
+    <Resource Include="img\cot.png" />
+    <Resource Include="img\pie.png" />
+    <Resource Include="img\line.png" />
+    <Resource Include="img\lineRound.png" />
+    <Resource Include="img\lineChart.png" />
+    <Resource Include="img\lineC.png" />
+    <Resource Include="img\col.png" />
+    <Resource Include="img\col1.png" />
+    <Resource Include="img\1.png" />
+    <Resource Include="img\2.png" />
+    <Resource Include="img\3.png" />
+    <Resource Include="img\4.png" />
+    <Resource Include="img\5.png" />
+    <Resource Include="img\sample.png" />
+    <Resource Include="img\more1.png" />
+    <Resource Include="img\more2.png" />
+    <Resource Include="img\backgorund.png" />
+    <Resource Include="img\bgg.jpg" />
+    <SplashScreen Include="img\flashScreen.png" />
+    <Content Include="SanPhamDatabaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SanPhamDatabaseModel.Context.cs</LastGenOutput>
+      <DependentUpon>SanPhamDatabaseModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="SanPhamDatabaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SanPhamDatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>SanPhamDatabaseModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

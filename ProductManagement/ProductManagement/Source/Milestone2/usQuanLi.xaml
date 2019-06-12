@@ -1,0 +1,109 @@
+﻿<UserControl x:Class="Milestone2.usQuanLi"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:Milestone2"
+             mc:Ignorable="d" 
+             d:DesignHeight="680" d:DesignWidth="1000" Initialized="UserControl_Initialized">
+
+    <Grid>
+        <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.4}" Grid.RowSpan="2">
+            <Grid>
+                <!--Menu bar-->
+                <materialDesign:Card
+                    UniformCornerRadius="5"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                    Height="44" 
+                    Margin="24,12,26,0"
+                    >
+                    <StackPanel
+                      Orientation="Horizontal">
+                        <!--Sản phẩm-->
+                        <RadioButton  
+                            Cursor="Hand"
+                            Click="RadioSanPham_MouseLeftButtonDown"
+                            x:Name="radioSanPham"
+                            Style="{StaticResource MaterialDesignTabRadioButton}"
+                            Margin="6,10,6,9"
+                            IsChecked="True"
+                            FontFamily="/Milestone2;component/assets/#SVN-Poppins" Height="Auto" Width="127" >
+                            <RadioButton.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="18" Source="img/icons8_Open_Box_25px.png" Margin="0,0,5,0"/>
+                                    <TextBlock FontSize="13" Text="Sản phẩm" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </RadioButton.Content>
+                        </RadioButton>
+                        <!--Loại-->
+                        <RadioButton
+                            Cursor="Hand"
+                            x:Name="radioLoai"
+                            Style="{StaticResource MaterialDesignTabRadioButton}"
+                            Margin="6"
+                            Click="RadioLoai_Click"
+                            IsChecked="False"
+                            FontFamily="/Milestone2;component/assets/#SVN-Poppins" >
+                            <RadioButton.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="18" Source="img/icons8_Pie_Chart_25px.png" Margin="0,0,5,0"/>
+                                    <TextBlock FontSize="13" Text="Loại sản phẩm" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </RadioButton.Content>
+                        </RadioButton>
+                        <!--Hóa đơn-->
+                        <RadioButton Click="RadioHoaDon_Click"
+                            Cursor="Hand"
+                            x:Name="radioHoaDon"
+                            Style="{StaticResource MaterialDesignTabRadioButton}"
+                            Margin="6"
+                            IsChecked="False"
+                            FontFamily="/Milestone2;component/assets/#SVN-Poppins" >
+                            <RadioButton.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="18" Source="img/icons8_Purchase_Order_25px.png" Margin="0,0,5,0"/>
+                                    <TextBlock FontSize="13" Text="Hóa đơn" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </RadioButton.Content>
+                        </RadioButton>
+                        <materialDesign:PopupBox
+                            Padding="8"
+                            Foreground="#686CFA"
+                            Margin="490,0,0,0"
+                            HorizontalAlignment="Right"
+                            PlacementMode="BottomAndAlignRightEdges">
+                            <!--Nút import excel-->
+                            <Button Name="ImportBtn" Click="ImportBtn_Click" Height="45" Width="150" VerticalAlignment="Center" FontSize="12"
+                              Content="Nhập từ tập tin excel"/>
+                        </materialDesign:PopupBox>
+                    </StackPanel>
+                </materialDesign:Card>
+                <materialDesign:Card
+                    UniformCornerRadius="5"
+                    Height="600" 
+                    Margin="24,70,26,0"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                    >
+                    <!--Chuyển qua screen hiển thị sản phẩm-->
+                    <Grid x:Name="gridQuanLi">
+
+                    </Grid>
+                </materialDesign:Card>
+                <!--Hiện dialog-->
+                <materialDesign:DialogHost Name="dialog" CloseOnClickAway="True" FontFamily="Arial Unicode MS">
+                    <materialDesign:DialogHost.DialogContent>
+                        <Grid VerticalAlignment="Center" Height="90" Width="300" >
+                            <Rectangle Height="20" Fill="#7E81F3" Margin="0,0,0,70"/>
+                            <TextBlock HorizontalAlignment="Center" Foreground="#7E81F3" VerticalAlignment="Bottom" Text="Nhập thành công! " FontFamily="Arial Rounded MT Bold" Margin="91,0,77,42" Width="132" />
+                            <Button Click="Button_Click" Style="{StaticResource MaterialDesignFlatButton}" FontWeight="Bold" Foreground="#7E81F3" HorizontalAlignment="Center" FontSize="10" Content="OK" Margin="110,62,117,6" Height="Auto" Width="73"/>
+                        </Grid>
+                    </materialDesign:DialogHost.DialogContent>
+                </materialDesign:DialogHost>
+            </Grid>
+
+        </materialDesign:TransitioningContent>
+
+    </Grid>
+
+</UserControl>

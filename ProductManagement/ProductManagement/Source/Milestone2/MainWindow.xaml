@@ -1,0 +1,115 @@
+﻿<Window x:Class="Milestone2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Milestone2"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        FontFamily="Century Gothic"
+        Background="{DynamicResource MaterialDesignPaper}"
+        
+        mc:Ignorable="d" Height="730" Width="1200" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"  >
+
+
+    <Grid x:Name="Application" Background="#F6F7FB" MouseDown="Application_MouseDown" Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Top bar-->
+        <Grid Background="#FFFFFF" Grid.Row="0" Margin="200,0,0,0">
+            <Grid.Effect>
+                <DropShadowEffect Color="#FFF0E9E9" BlurRadius="25" ShadowDepth="2"/>
+            </Grid.Effect>
+            <Grid.RowDefinitions >
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="45"/>
+            </Grid.RowDefinitions>
+            <!--Các button trên cùng-->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0,5,0">
+                <Button x:Name="bell" Click="Bell_Click" MouseLeave="Bell_MouseLeave" MouseEnter="Bell_MouseEnter" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="#686CFA"
+                materialDesign:ShadowAssist.ShadowDepth="Depth0">
+                    <materialDesign:PackIcon Kind="BellOutline"/>
+                </Button>
+                <Button Width="30" MouseLeave="Bell_MouseLeave" 
+                    materialDesign:ShadowAssist.ShadowDepth="Depth0" 
+                    MouseEnter="Bell_MouseEnter" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="#686CFA" Margin="0 0 0 0">
+                    <materialDesign:PackIcon Kind="Settings"
+                                        />
+                </Button>
+                <Button BorderThickness="0" MouseLeave="Bell_MouseLeave"
+                     materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                    MouseEnter="Bell_MouseEnter"  x:Name="ButtonClose" Click="CloseButton_Click" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="#686CFA">
+                    <materialDesign:PackIcon Kind="Power"/>
+                </Button>
+            </StackPanel>
+            <!--Thanh tittle-->
+            <Grid Grid.Row="1">
+                <Separator Width="1200" VerticalAlignment="Top" Background="#EFF0F6" />
+
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" Margin="200,0,0,0" >
+            <Grid 
+              Grid.Row="17" Width="1000" Height="695">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="467*"/>
+                        <ColumnDefinition Width="33*"/>
+                    </Grid.ColumnDefinitions>
+                    <ContentControl x:Name="mainContentControl" Grid.ColumnSpan="2" />
+                </Grid>
+            </Grid>
+        </Grid>
+        <!--Thanh menu trái -->
+        <Grid Background="#63168C
+              "
+              Width="200"
+              Opacity="0.8"
+              HorizontalAlignment="Left" Grid.RowSpan="3">
+            <Grid.Effect>
+                <DropShadowEffect Color="#FFEAE8E8" ShadowDepth="2" BlurRadius="30"/>
+            </Grid.Effect>
+            <!--Transition-->
+            <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}" Margin="0,50,0,0">
+                <Grid x:Name="GridCursor" Margin="0 52 0 0" Background="#686CFA" Width="5" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top"/>
+            </materialDesign:TransitioningContent>
+            <!--ListView Navigation-->
+            <ListView x:Name="ListViewMenu" Margin="0 100" Foreground="LightGray" FontFamily="Champagne &amp; Limousines" FontSize="18" SelectionChanged="ListViewMenu_SelectionChanged" SelectedIndex="0">
+                <ListViewItem Height="60" x:Name="xn"  MouseEnter="Xn_MouseEnter" MouseLeave="Xn_MouseLeave">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Home" Foreground="White" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock Text="Trang chủ"  FontSize="15" VerticalAlignment="Center" Margin="20 0" Foreground="White" FontFamily="/Milestone2;component/assets/#SVN-Poppins" />
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="60">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Foreground="White" Kind="Money" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock Text="Bán hàng" FontSize="15" VerticalAlignment="Center" Margin="20 0" Foreground="White" FontFamily="/Milestone2;component/assets/#SVN-Poppins" />
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="60">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Foreground="White" Kind="SettingsApplications" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock Text="Quản lí" FontSize="15" VerticalAlignment="Center" Margin="20 0" Foreground="White" FontFamily="/Milestone2;component/assets/#SVN-Poppins" />
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="60"  FontFamily="/Milestone2;component/assets/#SVN-Poppins">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Foreground="White" Kind="Report" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock Text="Báo cáo" FontSize="15" VerticalAlignment="Center" Margin="20 0" Foreground="White" FontFamily="/Milestone2;component/assets/#SVN-Poppins" />
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="60" FontFamily="/Milestone2;component/assets/#SVN-Poppins">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Foreground="White" Kind="InfoOutline" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock Text="Thông tin" FontSize="15" VerticalAlignment="Center" Margin="20 0" Foreground="White" FontFamily="/Milestone2;component/assets/#SVN-Poppins"/>
+                    </StackPanel>
+
+                </ListViewItem>
+            </ListView >
+        </Grid>
+    </Grid>
+</Window>

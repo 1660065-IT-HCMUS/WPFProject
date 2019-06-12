@@ -1,0 +1,307 @@
+﻿<UserControl x:Class="Milestone2.usBanHang"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:Milestone2"
+             mc:Ignorable="d" 
+             d:DesignHeight="695" d:DesignWidth="980" Initialized="UserControl_Initialized">
+    <UserControl.Resources>
+        <local:ImageConverter x:Key="MyImageConverter"/>
+        <local:Product x:Key="product"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="562"/>
+
+        </Grid.ColumnDefinitions>
+        <!--Hiện sản phẩm tại đây-->
+        <Grid Grid.Column="0">
+            <materialDesign:Card  UniformCornerRadius="5" Height="668" Margin="36,10,-405,0" >
+                <Grid>
+                    <Image 
+                           RenderOptions.BitmapScalingMode="HighQuality"
+                           Source="/img/icons8_Search_50px.png"
+                           Margin="10,10,889,635"/>
+                    <TextBox TextChanged="KeyWordTextBox_TextChanged"
+                            Foreground="#515FCC"
+                                CaretBrush="#F0F3FF"
+                            materialDesign:HintAssist.Hint="Tìm kiếm nhanh theo tên"
+                            x:Name="KeyWordTextBox"
+                                SelectionBrush="#F0F3FF"
+                            materialDesign:TransitionAssist.DisableTransitions="True" Margin="43,3,436,635" BorderBrush="#F0F3FF" FontFamily="/Milestone2;component/assets/#SVN-Poppins" >
+                        <TextBox.Text>
+                            <Binding Path="keyword"
+                                     Mode="TwoWay"
+                                     >
+                                <Binding.ValidationRules>
+                                    <local:EmptyValidation/>
+                                    <local:RegexValidation/>
+                                </Binding.ValidationRules>
+                            </Binding>      
+                        </TextBox.Text>
+                    </TextBox>
+                    <materialDesign:PopupBox  VerticalContentAlignment="Center"  PlacementMode="LeftAndAlignMiddles" StaysOpen="True" Panel.ZIndex="2" Width="148" Margin="796,3,-12,620">
+                        <materialDesign:PopupBox.ToggleContent>
+
+                            <Border  Padding="2" BorderBrush="#673AB7" BorderThickness="1" Width="98">
+                                <materialDesign:Badged Name="myBadged" Badge="{Binding TotalProduct}" Height="24" Margin="0,0,-3,0" Width="95">
+                                    <StackPanel  Orientation="Horizontal" Height="24" Width="94">
+                                        <Image Width="17" Height="17" Margin="5,0,5,0" Source="/img/basket.png"/>
+                                        <TextBlock Foreground="#2993E3" FontSize="12" HorizontalAlignment="Center" Text="Giỏ hàng" FontFamily="/Milestone2;component/assets/#SVN-Poppins" Margin="2,5,5,0" Width="59"/>
+                                    </StackPanel>
+                                </materialDesign:Badged>
+                            </Border>
+                        </materialDesign:PopupBox.ToggleContent>
+                        <Grid Height="670">
+                            <materialDesign:Card UniformCornerRadius="5" Height="680" >
+                                <Grid>
+                                    <TextBlock  Foreground="#ffa801" Text="ĐƠN HÀNG CỦA TÔI"
+                                   FontSize="19"
+                                   Margin="245,0,0,641" FontFamily="/Milestone2;component/assets/#SVN-Poppins"/>
+                                    <Separator Margin="-4,510,4,60" Background="#F0F3FF" />
+                                    <ListView
+                                      Background="White"
+                                      Foreground="#2993E3"
+                                      Name="donHangDataGrid"
+                                      materialDesign:DataGridAssist.CellPadding="4 2 2 2"
+                                      materialDesign:DataGridAssist.ColumnHeaderPadding="4 2 11 2" Margin="0,36,0,93" FontFamily="/Milestone2;component/assets/#SVN-Poppins" >
+
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Width="240" Header="Tên sản phẩm" >
+                                                    <GridViewColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <TextBlock Text="{Binding Path=Product.NameProduct}" Margin="0,12,0,0" />
+                                                        </DataTemplate>
+                                                    </GridViewColumn.CellTemplate>
+                                                </GridViewColumn>
+                                                <GridViewColumn Width="150" Header="Giá">
+                                                    <GridViewColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <TextBlock Margin="0,12,0,0" Text="{Binding Path=Product.PriceProduct,StringFormat={}{0:0,0}đ}"/>
+                                                        </DataTemplate>
+                                                    </GridViewColumn.CellTemplate>
+                                                </GridViewColumn>
+                                                <GridViewColumn Width="120" Header="Số lượng">
+                                                    <GridViewColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <TextBox VerticalAlignment="Center" Margin="0,12,0,0" HorizontalAlignment="Center" Text="{Binding QuantityOrderDetail}" TextAlignment="Center" Width="50" 
+                                                     x:Name="SoLuongTextBox" TextChanged="SoLuongTextBox_TextChanged" 
+                                                     PreviewTextInput="SoLuongTextBox_PreviewTextInput"/>
+                                                        </DataTemplate>
+                                                    </GridViewColumn.CellTemplate>
+                                                </GridViewColumn>
+                                                <GridViewColumn Width="100" Header="Thành tiền"  >
+                                                    <GridViewColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <TextBlock Text="{Binding Path=TotalOrderDetal,StringFormat={}{0:0,0}đ}" Margin="0,12,0,0"/>
+                                                        </DataTemplate>
+                                                    </GridViewColumn.CellTemplate>
+                                                </GridViewColumn>
+                                                <GridViewColumn>
+                                                    <GridViewColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <Button Foreground="#F03674" Content="{materialDesign:PackIcon Kind='Delete'}" 
+                                                    Background="{x:Null}" BorderBrush="{x:Null}" 
+                                                    ToolTip="Xóa đơn hàng" x:Name="XoaDonHangButton"
+                                                    Click="XoaDonHangButton_Click"/>
+                                                        </DataTemplate>
+                                                    </GridViewColumn.CellTemplate>
+                                                </GridViewColumn>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <materialDesign:Snackbar
+                                        Height="50" Width="500"
+                                        Margin="0,0,0,130"
+                                        Background="#1CBFAE"
+                                        Foreground="White"
+                                        MessageQueue="{materialDesign:MessageQueue}"
+                                        x:Name="ThongBaoSnackbar" />
+                                    <Grid Margin="0,605,0,0">
+
+                                        <StackPanel>
+                                            <TextBlock Text="Tổng số tiền:"
+                                       Margin="5,0,0,0"
+                                       Foreground="#515FCC"
+                                       FontSize="13" 
+                                       FontFamily="/Milestone2;component/assets/#SVN-Poppins" Height="18"
+                                       />
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock
+                                               Name="finaltotalTextBlock"
+                                               Text="{Binding FinalTotal,StringFormat={}{0:0,0} đ}"
+                                               Margin="30,6,0,0"
+                                               Foreground="#FD397A"
+                                               FontSize="20" 
+                                               FontFamily="/Milestone2;component/assets/#SVN-Poppins" Height="27" Width="187"/>
+
+                                                <Button
+                                                    
+                                                    materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                                    Margin="340,0,0,0"
+                                                    Style="{StaticResource MaterialDesignRaisedButton}"
+                                                    Width="100"
+                                                    Content="Lưu"
+                                                    Name="luuBtn"
+                                                    Click="LuuBtn_Click"
+                                                    ToolTip="Lưu đơn hàng" FontFamily="/Milestone2;component/assets/#SVN-Poppins">
+                                                </Button>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Grid>
+                                    <StackPanel Orientation="Horizontal" Height="30" Margin="0,480,0,0">
+                                        <CheckBox VerticalAlignment="Center" Margin="10,0,0,0" FontWeight="Bold" x:Name="DaThanhToanCheckBox">Đã thanh toán</CheckBox>
+                                    </StackPanel>
+                                </Grid>
+                            </materialDesign:Card>
+                        </Grid>
+                    </materialDesign:PopupBox>
+                    <StackPanel Margin="10,35,0,595" Background="White" Orientation="Horizontal">
+                        <Button VerticalAlignment="Center" ToolTip="Hiện tất cả"
+                                
+                                Margin="3,0,0,0" x:Name="allProduct"
+                                Background="#DCECEB"
+                                Foreground="#3BBFAE"
+                                Style="{StaticResource MaterialDesignFlatButton}"
+                                Click="AllProduct_Click" Width="50" Height="25" FontFamily="/Milestone2;component/assets/#SVN-Poppins">
+                            <Button.Content>
+                                <Image Source="img/filter1.png"/>
+                            </Button.Content>
+                        </Button>
+                        <TextBlock  Text="Loại sản phẩm:" HorizontalAlignment="Center" Margin="15,11,0,6" Height="Auto" Width="95" FontFamily="/Milestone2;component/assets/#SVN-Poppins"/>
+                        <ComboBox BorderBrush="#2FC5A0" x:Name="FilterCateComboBox" SelectionChanged="FilterCateComboBox_SelectionChanged" Width="100" Height="25" Background="White" Margin="6,0,0,0" FontFamily="/Milestone2;component/assets/#SVN-Poppins"></ComboBox>
+                        <TextBlock Text="Giá tiền" VerticalAlignment="Center" Margin="6,0,0,0" FontFamily="/Milestone2;component/assets/#SVN-Poppins"/>
+                        <ComboBox BorderBrush="#2FC5A0" x:Name="FilterPriceComboBox" SelectionChanged="FilterPriceCombobox_SelectionChanged" Width="160" Height="25" Background="White" Margin="6,0,0,0" FontFamily="/Milestone2;component/assets/#SVN-Poppins">
+                            <ComboBoxItem>0 đ - 1.000.000 đ</ComboBoxItem>
+                            <ComboBoxItem>1.000.000 đ - 2.000.000 đ</ComboBoxItem>
+                            <ComboBoxItem>2.000.000 đ - 5.000.000 đ</ComboBoxItem>
+                            <ComboBoxItem>5.000.000 đ - 10.000.000 đ</ComboBoxItem>
+                            <ComboBoxItem>> 10.000.000 đ</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                    <TextBlock Text="Danh sách sản phẩm"
+                               FontWeight="Thin"
+                               Foreground="#515FCC"
+                               FontSize="15"
+                               Margin="6,80,353,560" FontFamily="/Milestone2;component/assets/#SVN-Poppins"/>
+                    <!--Hiển thị sản phẩm tại đây-->
+                    <ListView 
+                              Name="hienThiSanPhamListView"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="20,125,0,35"
+                              FontFamily="/Milestone2;component/assets/#SVN-Poppins">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <materialDesign:Card
+                                 x:Name="CardProduct"
+                                    MouseLeftButtonDown="GridProduct_MouseLeftButtonDown"
+                                 Width="180"
+                                 Margin="16,6,6,6">
+                                    <Grid x:Name="GridProduct" >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition
+                                             Height="100" />
+                                            <RowDefinition
+                                             Height="*" />
+                                            <RowDefinition
+                                             Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Image
+                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                        Source="{Binding ImageProduct, 
+                                        Converter={StaticResource MyImageConverter}}" 
+                                        Width="90" Height="90"
+                                        Stretch="UniformToFill" />
+                                        <StackPanel
+                                          Grid.Row="1"
+                                          Margin="8 24 10 3" x:Name="DonHangStackPanel">
+                                            <TextBlock
+                                            Height="20"
+                                            Margin="3"
+                                                TextAlignment="Center"
+                                            TextWrapping="WrapWithOverflow"
+                                            Foreground="#2993E3"
+                                            FontSize="13"
+                                            Text="{Binding NameProduct}">
+                                            </TextBlock>
+                                            <TextBlock Margin="0,4,0,0" Text="{Binding PriceProduct,StringFormat={}{0:0,0}đ}"   
+                                                   TextAlignment="Center" TextWrapping="Wrap"
+                                                   VerticalAlignment="Center" FontSize="13" Foreground="#FD397A"/>
+                                        </StackPanel>
+                                        <StackPanel
+                                              HorizontalAlignment="Center"
+                                              Grid.Row="2"
+                                              Orientation="Horizontal"
+                                              Margin="8">
+                                            <materialDesign:RatingBar
+                                              Foreground="#FFB822"
+                                              Value="4"
+                                              Margin="0,4,0,0"
+                                              x:Name="BasicRatingBar"
+                                              />
+                                        </StackPanel>
+                                    </Grid>
+                                </materialDesign:Card>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <!--Phân trang-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" 
+                    Width="932" 
+                    DockPanel.Dock="Bottom" Margin="0,635,0,0" >
+                        <Button x:Name="previousButton" Width="28" MouseLeave="MouseLeave" 
+                                materialDesign:ShadowAssist.ShadowDepth="Depth0" 
+                                MouseEnter="MouseEnter" Height="28" 
+                                 Background="#F0F3FF" BorderBrush="{x:Null}" Click="PreviousButton_Click" 
+                                 Padding="0" Foreground="#686CFA" Margin="30,0,10,0" FontFamily="/Milestone2;component/assets/#SVN-Poppins">
+                            <materialDesign:PackIcon Kind="KeyboardArrowLeft"
+                                        />
+                        </Button>
+                        <Label x:Name="pagingInfoLabel" Foreground="#5D78FF"
+                                   VerticalAlignment="Center" 
+                                   Content="Trang 1 của 7 " 
+                                   
+                                   FontFamily="/Milestone2;component/assets/#SVN-Poppins"/>
+                        <Button x:Name="nextButton" Width="28" MouseLeave="MouseLeave" 
+                                materialDesign:ShadowAssist.ShadowDepth="Depth0" 
+                                MouseEnter="MouseEnter" Height="28" 
+                                 Background="#F0F3FF" BorderBrush="{x:Null}" 
+                                 Padding="0" Foreground="#686CFA" Margin="10,0,0,0" Click="NextButton_Click">
+                            <materialDesign:PackIcon Kind="KeyboardArrowRight"
+                                        />
+                        </Button>
+                        <Label Foreground="#5D78FF"
+                                   VerticalAlignment="Center" 
+                                   Content="Tổng số sản phẩm trên trang : " 
+                                   FontFamily="/Milestone2;component/assets/#SVN-Poppins" Margin="465,0,0,0"/>
+                        <!--Hiện số trang ở đây-->
+                        <ComboBox x:Name="itemsPerPageComboBox" SelectionChanged="ItemsPerPageComboBox_SelectionChanged" Text="4"
+                            Foreground="#5D78FF" 
+                            FontFamily="/Milestone2;component/assets/#SVN-Poppins" Width="68" Margin="0">
+                            <ComboBoxItem Content="4"/>
+                            <ComboBoxItem Content="5"/>
+                            <ComboBoxItem Content="6"/>
+                            <ComboBoxItem Content="7"/>
+                            <ComboBoxItem Content="9"/>
+                        </ComboBox>
+                    </StackPanel>
+
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
+
+        <materialDesign:DialogHost Background="Transparent" Name="abc" CloseOnClickAway="True" 
+                                   FontFamily="Arial Unicode MS" Margin="0,0,-417,10">
+            <materialDesign:DialogHost.DialogContent>
+                <Image Width="150" Height="150" Source="/img/thongbao.png" />
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+    </Grid>
+</UserControl>
